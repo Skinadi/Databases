@@ -5,10 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginPanel extends JPanel implements ActionListener{
 
-    public static final int HEIGHT = 100;
+    public static final int HEIGHT = 200;
     public static final int WIDTH = 300;
     private JButton signin;
     private JButton back;
@@ -33,13 +35,35 @@ public class LoginPanel extends JPanel implements ActionListener{
         //add(back);
     }
 
+    public String getPassword() {
+        String password = "";
+        char[] pass = passField.getPassword();
+        for(int i=0; i<pass.length; i++) {
+            password += pass[i];
+        }
+        return password;
+    }
+
+    public String getname(JTextField field)
+    {
+        return field.getText();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
         if(source == signin)
         {
-
+            try{
+                ConnectionManager.exist.setString(1,getname(nameField));
+                ConnectionManager.exist.setString(2,getPassword());
+                ResultSet rs = ConnectionManager.exist.executeQuery();
+                if(rs.next())
+                    System.out.print("Logowanie poprawne");
+                else
+                    System.out.print("Nie udało się zalogować");
+            }catch (SQLException s){System.out.print("OJEJ");}
         }
 
         else

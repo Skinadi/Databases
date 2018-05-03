@@ -8,6 +8,9 @@ public class MainFrame extends JFrame {
     MainFrame()
     {
         super("Rozlicz się");
+
+        ConnectionManager.establishconnection();
+
         currPanel = new MainPanel(this);
         add(currPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

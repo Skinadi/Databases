@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class MainPanel extends JPanel implements ActionListener{
 
-    public static final int HEIGHT = 100;
+    public static final int HEIGHT = 200;
     public static final int WIDTH = 300;
     private JButton loginButton;
     private JButton signinButton;
