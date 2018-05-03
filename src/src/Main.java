@@ -1,10 +1,17 @@
 /**
  * Created by skinadi on 28.02.18.
  */
+import java.awt.EventQueue;
 public class Main {
 
-    public static void main(String [] args)
+    public static void main(String[] args)
     {
-        System.out.print("test");
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainFrame();
+            }
+        });
     }
+
 }
