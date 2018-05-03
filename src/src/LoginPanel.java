@@ -10,37 +10,66 @@ public class LoginPanel extends JPanel implements ActionListener{
 
     public static final int HEIGHT = 100;
     public static final int WIDTH = 300;
-    private JButton greenButton;
-    private JButton blueButton;
-    private JButton redButton;
+    private JButton signin;
+    private JButton back;
 
-    public LoginPanel() {
-        greenButton = new JButton("Green");
-        blueButton = new JButton("Blue");
-        redButton = new JButton("Red");
+    private JTextField nameField;
+    private JPasswordField passField;
 
-        greenButton.addActionListener(this);
-        blueButton.addActionListener(this);
-        redButton.addActionListener(this);
+
+    MainFrame parent;
+    public LoginPanel(MainFrame parent) {
+        this.parent=parent;
+        signin = new JButton("Sign in");
+        back = new JButton("Back");
+
+        signin.addActionListener(this);
+        back.addActionListener(this);
 
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(greenButton);
-        add(blueButton);
-        add(redButton);
+        create();
+        //add(signin);
+        //add(back);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if(source == greenButton)
-            setBackground(Color.YELLOW);
+        if(source == signin)
+        {
 
-        else if(source == blueButton)
-            setBackground(Color.BLUE);
+        }
 
-        else if(source == redButton)
-            setBackground(Color.RED);
+        else
+        if(source == back)
+        {
+            parent.updatePanel(new MainPanel(parent));
+        }
+
+    }
+    void create()
+    {
+        JLabel name = new JLabel("Login: ");
+        JLabel password = new JLabel("Password: ");
+        nameField = new JTextField();
+        passField = new JPasswordField();
+
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(3, 2));
+        inputPanel.add(name);
+        inputPanel.add(nameField);
+        inputPanel.add(password);
+        inputPanel.add(passField);
+        inputPanel.add(back);
+        inputPanel.add(signin);
+
+        JPanel parentPanel = new JPanel();
+        parentPanel.setLayout(new BorderLayout());
+        parentPanel.add(inputPanel, BorderLayout.CENTER);
+
+        this.add(parentPanel);
+
     }
 }

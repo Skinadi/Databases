@@ -16,8 +16,8 @@ public class MainPanel extends JPanel implements ActionListener{
     MainFrame parent;
     public MainPanel(MainFrame parent) {
         this.parent = parent;
-        loginButton = new JButton("Green");
-        signinButton = new JButton("Blue");
+        loginButton = new JButton("Sign in");
+        signinButton = new JButton("Sign up");
 
         loginButton.addActionListener(this);
         signinButton.addActionListener(this);
@@ -34,15 +34,13 @@ public class MainPanel extends JPanel implements ActionListener{
 
         if(source == loginButton)
         {
-            setBackground(Color.GREEN);
-            parent.updatePanel(new LoginPanel());
+            parent.updatePanel(new LoginPanel(parent));
         }
 
         else
         if(source == signinButton)
         {
-            setBackground(Color.BLUE);
-            parent.updatePanel(new SignInPanel());
+            parent.updatePanel(new SignUpPanel(parent));
         }
 
     }

@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SignInPanel extends JPanel implements ActionListener{
+public class SignUpPanel extends JPanel implements ActionListener{
 
     public static final int HEIGHT = 100;
     public static final int WIDTH = 300;
@@ -17,7 +17,9 @@ public class SignInPanel extends JPanel implements ActionListener{
     private JButton blueButton;
     private JButton redButton;
 
-    public SignInPanel() {
+    MainFrame parent;
+    public SignUpPanel(MainFrame parent) {
+        this.parent=parent;
         greenButton = new JButton("Green");
         blueButton = new JButton("Blue");
         redButton = new JButton("Red");
