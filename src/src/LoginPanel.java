@@ -60,9 +60,16 @@ public class LoginPanel extends JPanel implements ActionListener{
                 ConnectionManager.exist.setString(2,getPassword());
                 ResultSet rs = ConnectionManager.exist.executeQuery();
                 if(rs.next())
-                    System.out.print("Logowanie poprawne");
+                {
+                    User user = new User(rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getString("name"),
+                            rs.getString("surname"));
+                    parent.updatePanel(new UserPanel(parent,user));
+                    System.out.println("Logowanie poprawne");
+                }
                 else
-                    System.out.print("Nie udało się zalogować");
+                    System.out.println("Nie udało się zalogować");
             }catch (SQLException s){System.out.print("OJEJ");}
         }
 
