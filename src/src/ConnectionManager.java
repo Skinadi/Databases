@@ -16,7 +16,7 @@ public class ConnectionManager {
                     "postgres", "madzia");
             insert = connection.prepareStatement("INSERT INTO client (email,password,name,surname) VALUES (?,?,?,?)");
             exist = connection.prepareStatement("SELECT * from client where email=? and password=?");
-            getfriends = connection.prepareStatement("select * from client where email = (select email2 from friends where email1 = ?)");
+            getfriends = connection.prepareStatement("select * from client where email in (select email2 from friends where email1 = ?)");
         }catch (SQLException e) {
             e.printStackTrace();
         }
