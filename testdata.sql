@@ -1,0 +1,10 @@
+INSERT INTO client VALUES ('zuro', 'lol', 'Piotrek', 'Żurek');
+INSERT INTO client VALUES ('krys', 'lol1', 'Krystian', 'Krakowski');
+INSERT INTO client VALUES ('skinadi', 'lol2', 'Damian', 'Białas');
+INSERT INTO client VALUES ('ivan', 'lol3', 'Dominik', 'Kędzior');
+INSERT INTO friends VALUES ('skinadi', 'zuro');
+INSERT INTO friends VALUES ('skinadi', 'ivan');
+INSERT INTO friends VALUES ('skinadi', 'krys');
+INSERT INTO friends VALUES ('zuro', 'skinadi');
+INSERT INTO friends VALUES ('zuro', 'ivan');
+INSERT INTO friends VALUES ('ivan', 'krys');

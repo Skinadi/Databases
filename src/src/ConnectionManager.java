@@ -21,6 +21,5 @@ public class ConnectionManager {
             e.printStackTrace();
         }
 
-
     }
 }

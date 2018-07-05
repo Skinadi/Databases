@@ -67,7 +67,9 @@ public class UserPanel extends JPanel implements ActionListener {
         else
         if(source==logout)
         {
-
+            friendList.clear();
+            buttonsList.clear();
+            parent.updatePanel(new LoginPanel(parent));
         }
         else
         for(int i = 0; i<buttonsList.size();i++)
